@@ -1,16 +1,15 @@
-using IdentityServerWebApp;
+using IdentityServer6;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-// 3
+// Step 3 
 builder.Services.AddIdentityServer(options =>
 {
     options.Events.RaiseErrorEvents = true;
     options.Events.RaiseInformationEvents = true;
     options.Events.RaiseFailureEvents = true;
     options.Events.RaiseSuccessEvents = true;
-
     options.EmitStaticAudienceClaim = true;
 
 }).AddTestUsers(Config.Users)
@@ -27,6 +26,4 @@ app.UseIdentityServer();
 app.MapGet("/", () => "Hello World!");
 
 app.Run();
-
-// 1er Modificar puerto LaunchSettings.json
-// 2do Agregar la libreria IdentityServer. 
+ 
