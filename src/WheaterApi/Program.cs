@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
-//0 se agrego authoriza al controller.
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -9,16 +9,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// 1.0 Se Agregan los servicios de Jwt Authentiaciton 
+// Step 1 Agregar los servicios de Jwt Authentication 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.Authority = "https://localhost:5000";
-        options.Audience = "weatherapi";
+        options.Audience = "weatherapi"; // Si el audience es incorrecto no acepta el token aun y cuando el token tenga el scope correcto.
+                                         // una cosa es que el token que se solicita este correcto y otra que sea valido para esta api. 
 
-        // Con este ultimo punto ya tenemos configurado la autorizacion (Error 401) pero aun no tenemos el Token 
-        // cuando la peticion ya con el token entonces si obtengo los datos
-       // options.TokenValidationParameters.ValidTypes = new[] { "at+jwt" }; // aun sin este dato obtengo los datos
+        // Con este ultimo punto ya tenemos configurado la autorización (Error 401) pero aun no tenemos el Token 
+        // cuando la petición ya con el token entonces si obtengo los datos
+        options.TokenValidationParameters.ValidTypes = new[] { "at+jwt" }; // aun sin este dato obtengo los datos
 
     });
 

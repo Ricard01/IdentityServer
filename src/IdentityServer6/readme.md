@@ -1,9 +1,9 @@
 ﻿# Orden de Creación y Modificación desde Ceros 
 
 1. En Properties/LaunchSettings.json modificar el puerto 
-	>> "profiles>IdentityServer6>applicationUrl: "https://localhost:5000"
+	> " profiles>IdentityServer6>applicationUrl: <b>https://localhost:5000</b> "
 2. Agregar la libreria IdentityServer.
-	>> "Duende.IdentityServer"
+	> " Duende.IdentityServer "
 
 3. En Program agregar el servicio de IdentityServer <see cref="builder.Services.AddIdentityServer"/>
    ```C# 
@@ -19,5 +19,5 @@
         .AddInMemoryApiResources(Config.ApiResources)
         .AddInMemoryApiScopes(Config.ApiScopes)
         .AddInMemoryIdentityResources(Config.IdentityResources); 
-  ```
+      ```
 4. Create Config File
