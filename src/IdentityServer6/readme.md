@@ -20,4 +20,21 @@
         .AddInMemoryApiScopes(Config.ApiScopes)
         .AddInMemoryIdentityResources(Config.IdentityResources); 
       ```
-4. Create Config File
+4. Crear Config File.
+
+5. En Powershell ir a la ruta del folder IdentityServer6 y ejecutar el cmd... (After Tag IdentityServer&Api)
+    ```
+    iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/DuendeSoftware/IdentityServer.Quickstart.UI/main/getmain.ps1'))
+    ```
+
+ 6. Agregar servicios. 
+
+ 7. Crear cliente de Angular   
+
+ 8. Configurar CORS
+
+ ### Referencias
+
+ [Getting Started with Identity Server Part 1](https://www.youtube.com/watch?v=DUujxWdnl3M&ab_channel=IdentityServer)
+
+ [Getting Started with Identity Server Part 2](https://www.youtube.com/watch?v=qyedQ6RzOHw&t=1500s&ab_channel=IdentityServer)

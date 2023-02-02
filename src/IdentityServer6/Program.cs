@@ -2,6 +2,18 @@ using IdentityServer6;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("angularClientUrl", policy =>
+    {
+        policy.WithOrigins("https://localhost:5003")
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
+
+// Step 6
+builder.Services.AddRazorPages();
 
 // Step 3 
 builder.Services.AddIdentityServer(options =>
@@ -20,10 +32,17 @@ builder.Services.AddIdentityServer(options =>
 
 
 var app = builder.Build();
-
+app.UseCors("angularClientUrl");
+//app.UseHttpsRedirection();
 app.UseIdentityServer();
 
-app.MapGet("/", () => "Hello World!");
+// Step 6
+// app.MapGet("/", () => "Hello World!");
+app.UseStaticFiles();
+app.UseRouting();
+
+app.UseAuthorization();
+app.MapRazorPages().RequireAuthorization();
 
 app.Run();
  

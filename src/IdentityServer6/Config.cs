@@ -128,6 +128,24 @@ public static class Config
       RequireConsent = true,
       AllowPlainTextPkce = false
     },
+     new Client
+    {
+      ClientId = "angularCmd",
+      ClientName = "Angular Native Client",
+      AllowedGrantTypes = GrantTypes.Code,
+        AllowAccessTokensViaBrowser=true,
+      RequirePkce = true,
+      RequireClientSecret = false,
+      AllowOfflineAccess = true,
+      //AllowAccessTokensViaBrowser=true,
+      RedirectUris = {"https://localhost:5003/callback"},
+      PostLogoutRedirectUris = {"https://localhost:5003/signout-callback-oidc"},
+      //FrontChannelLogoutUri = "https://localhost:5003/signout-oidc",
+      AllowedCorsOrigins = {"https://localhost:5003"},
+      AllowedScopes = {"openid", "profile", "weatherapi.read"},
+     // RequireConsent = Default false, 
+      // AllowPlainTextPkce = Default false
+    },
       };
 }
 
