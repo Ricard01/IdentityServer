@@ -1,0 +1,32 @@
+<div class="container-wrap navbar-side header-fixed" [ngClass]="{
+  'sidenav-collapsed': sidenavCollapsed
+}">
+
+
+<mat-sidenav-container class="container" autosize autoFocus>
+
+
+  <mat-sidenav  #sidenav class="sidenav"
+                [mode]="isOver ? 'over' : 'side'"
+                [opened]="this.sidenavOpened && !isOver"
+                (openedChange)="onSidenavOpenedChange($event)"
+                role="navigation">
+
+    <sidebar    (toggleCollapsed)="toggleCollapsed()"
+    [toggleChecked]="!!this.sidenavCollapsed"
+    ></sidebar>
+
+  </mat-sidenav>
+
+
+  <mat-sidenav-content class="content-wrap">
+
+    <header class="header" (toggleSidenav)="sidenav.toggle()"></header>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</div>

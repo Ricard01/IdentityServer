@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer6", "src\Iden
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WheaterApi", "src\WheaterApi\WheaterApi.csproj", "{EDC71558-F447-4125-8855-FCB83FC2654E}"
 EndProject
-Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "AngularClient", "src\AngularClient\AngularClient.esproj", "{A75DF2F5-A32B-4295-B4C5-6575E6D89EDD}"
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "AngularVs", "src\AngularVS\AngularVs.esproj", "{A75DF2F5-A32B-4295-B4C5-6575E6D89EDD}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Angular", "src\Angular\", "{EAF72846-A092-41B4-ACBA-1209CEE868BD}"
 	ProjectSection(WebsiteProperties) = preProject

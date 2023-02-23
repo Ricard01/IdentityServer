@@ -1,0 +1,21 @@
+<mat-toolbar class="toolbar">
+  <button mat-icon-button class="toolbar-button" (click)="toggleSidenav.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="home">Mi Perfil</button>
+  <button mat-menu-item (click)="logOut()">Cerrar sesion</button>
+</mat-menu>
+
+
+<button routerLink="home" mat-raised-button >Home</button>
+
+<button routerLink="weather" mat-raised-button >Weather API</button>
+
+<button (click)="logOut()" mat-button>Cerrar sesion</button>
+
+
+
+</mat-toolbar>

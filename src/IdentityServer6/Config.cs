@@ -128,12 +128,36 @@ public static class Config
       RequireConsent = true,
       AllowPlainTextPkce = false
     },
+    new Client
+    {
+        ClientId = "angularVS",
+        ClientName = "angular From Visual Studio",                        
+        AllowedGrantTypes = GrantTypes.Code,
+        RequirePkce = true,
+        RequireClientSecret = false,
+        AllowOfflineAccess = true,
+        //AllowAccessTokensViaBrowser=true,
+        RedirectUris = {"https://localhost:5002/callback"},
+        PostLogoutRedirectUris = { "https://localhost:5002" },       
+        AllowedCorsOrigins={ "https://localhost:5002"}, // que pasa si no lo pongo 
+        // RequireConsent = false, // default false
+        AllowedScopes = new List<string>
+        {
+            IdentityServerConstants.StandardScopes.OpenId,
+            IdentityServerConstants.StandardScopes.Profile,
+            "offline_access",
+            "weatherapi.write"
+
+
+        },
+
+    },
      new Client
     {
       ClientId = "angularCmd",
       ClientName = "Angular Native Client",
-      AllowedGrantTypes = GrantTypes.Code,
-        AllowAccessTokensViaBrowser=true,
+      AllowedGrantTypes = GrantTypes.Code,     
+      AllowAccessTokensViaBrowser=true,
       RequirePkce = true,
       RequireClientSecret = false,
       AllowOfflineAccess = true,

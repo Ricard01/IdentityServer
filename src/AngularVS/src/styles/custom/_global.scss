@@ -1,0 +1,146 @@
+@use '@angular/material' as mat;
+@use 'variables';
+@use 'transitions';
+@use 'breakpoints';
+
+.container-wrap,
+.container {
+  height: 100%;
+}
+
+.content {
+  position: relative;
+  padding: variables.$gutter;
+}
+
+.sidenav {
+  position: absolute;
+  overflow-x: hidden;
+  transition: transitions.swift-ease-out(width); // Only set width property
+
+  @include mat.elevation(2);
+
+  &.mat-drawer-side {
+    border-width: 0;
+
+    [dir='rtl'] & {
+      border-width: 0;
+    }
+  }
+}
+
+// Layout control
+.header-above {
+  .container {
+    height: calc(100% - #{variables.$toolbar-height-desktop}) !important;
+  }
+
+  .sidebar-main {
+    height: 100% !important;
+  }
+}
+
+// Layout control
+.sidenav-collapsed,
+.sidenav-collapsed-fix {
+  .sidenav {
+    width: variables.$sidenav-collapsed-width;
+
+    .menu-name,
+    .menu-label,
+    .menu-badge,
+    .menu-caret,
+    .user-panel-name,
+    .user-panel-email,
+    .user-panel-icons {
+      opacity: 0;
+    }
+
+    .user-panel-avatar {
+      transform: scale(.5);
+    }
+
+    &:hover {
+      width: variables.$sidenav-width;
+
+      .menu-name,
+      .menu-label,
+      .menu-badge,
+      .menu-caret,
+      .user-panel-name,
+      .user-panel-email,
+      .user-panel-icons {
+        opacity: 1;
+      }
+
+      .user-panel-avatar {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+// Layout control
+.sidenav-collapsed {
+  .content-wrap {
+    margin-left: variables.$sidenav-collapsed-width  !important;
+
+    //   [dir='rtl'] & {
+    //     margin-right: variables.$sidenav-collapsed-width  !important;
+    //     margin-left: auto !important;
+    //   }
+    // }
+
+    // &[dir='rtl'] .content-wrap {
+    //   margin-right: variables.$sidenav-collapsed-width  !important;
+    //   margin-left: auto !important;
+  }
+}
+
+
+// Layout control
+.header-fixed {
+  .header {
+    position: sticky;
+    top: 0;
+  }
+
+  .topmenu {
+    top: variables.$topmenu-sticky-position-desktop;
+
+    @include breakpoints.bp-lt(small) {
+      & {
+        top: variables.$topmenu-sticky-position-mobile;
+      }
+    }
+  }
+
+  &.navbar-side {
+    .toolbar {
+      border-bottom: unset;
+
+      @include mat.elevation(2);
+    }
+  }
+}
+
+// Fix the init content width
+// .content-width-fix {
+//   .content-wrap {
+//     margin-left: variables.$sidenav-width  !important;
+
+//     [dir='rtl'] & {
+//       margin-right: variables.$sidenav-width  !important;
+//       margin-left: auto !important;
+//     }
+//   }
+// }
+
+// Colorful
+// .header-white {
+
+//   .toolbar,
+//   .topmenu {
+//     background-color: white;
+//   }
+// }

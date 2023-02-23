@@ -2,15 +2,15 @@ using IdentityServer6;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("angularClientUrl", policy =>
-    {
-        policy.WithOrigins("https://localhost:5003")
-        .AllowAnyHeader()
-        .AllowAnyMethod();
-    });
-});
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("angularClientUrl", policy =>
+//    {
+//        policy.WithOrigins("https://localhost:5002")
+//        .AllowAnyHeader()
+//        .AllowAnyMethod();
+//    });
+//});
 
 // Step 6
 builder.Services.AddRazorPages();
@@ -32,7 +32,7 @@ builder.Services.AddIdentityServer(options =>
 
 
 var app = builder.Build();
-app.UseCors("angularClientUrl");
+//app.UseCors("angularClientUrl");
 //app.UseHttpsRedirection();
 app.UseIdentityServer();
 

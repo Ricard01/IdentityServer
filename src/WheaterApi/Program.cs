@@ -2,6 +2,16 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("angularVSUrl", policy =>
+    {
+        policy.WithOrigins("https://localhost:5002")
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -24,6 +34,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 var app = builder.Build();
+app.UseCors("angularVSUrl");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

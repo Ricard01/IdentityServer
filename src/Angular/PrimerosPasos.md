@@ -11,3 +11,7 @@
     ```Typescript
         ng add angular-auth-oidc-client
     ```
+
+Notas
+
+* Cuando pararece que tiene un loop en el inicio de sesion es porque el callback de identityserver tiene algun detalle por ejemplo , en angular no se ha especificado si despues de iniciar sesion ya esta autenticado por lo que vuelve hacer el proceso de authenticacion.

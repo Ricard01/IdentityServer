@@ -1,0 +1,74 @@
+// // src/styles/themes/_light.scss
+
+// @use "sass:map";
+// @use "@angular/material" as mat;
+
+// $my-light-theme-background: (
+//   status-bar: green,
+//   app-bar:    green,
+//   background: orange,
+//   hover:      rgba(white, 0.04),
+//   card:       red,
+//   dialog:     rgb(135, 220, 246),
+//   disabled-button: purple,
+//   raised-button: red,
+//   focused-button: green,
+//   selected-button: red,
+//   selected-disabled-button:red,
+//   disabled-button-toggle: black,
+//   unselected-chip: red,
+//   disabled-list-option: black,
+// );
+
+// $my-light-theme-foreground: (
+//   base:              yellow,
+//   divider:           purple,
+//   dividers:          purple,
+//   disabled:          rgba(white, 0.3),
+//   disabled-button:   rgba(white, 0.3),
+//   disabled-text:     rgba(white, 0.3),
+//   hint-text:         rgba(white, 0.3),
+//   secondary-text:    rgba(white, 0.7),
+//   icon:              white,
+//   icons:             white,
+//   text:              yellow,
+//   slider-min:        white,
+//   slider-off:        rgba(white, 0.3),
+//   slider-off-active: rgba(white, 0.3),
+// );
+
+// // instead of creating a theme with mat-light-theme like a sane person, we will create our own theme-creating function that lets us apply our own foreground and background palettes.
+// @function create-wonky-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+//   @return (
+//     primary: $primary,
+//     accent: $accent,
+//     warn: $warn,
+//     is-dark: false,
+//     foreground: $my-light-theme-foreground,
+//     background: $my-light-theme-background,
+//   );
+// }
+
+// $my-app-light-primary: mat.define-palette(mat.$indigo-palette);
+// $my-app-light-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// $my-app-light-warn: mat.define-palette(mat.$red-palette);
+
+// $my-app-light-theme: create-wonky-theme($my-app-light-primary,$my-app-light-accent,$my-app-light-warn);
+// // $my-app-light-theme: mat.define-light-theme(
+// //   (
+// //     color: (
+// //       primary: $my-app-light-primary,
+// //       accent: $my-app-light-accent,
+// //       warn: $my-app-light-warn,
+// //     ),
+// //   )
+// // );
+
+// $my-app-light-success: mat.define-palette(mat.$green-palette);
+// $my-app-light-info: mat.define-palette(mat.$blue-palette);
+
+// $my-app-light-variants: (
+//   success: $my-app-light-success,
+//   info: $my-app-light-info,
+// );

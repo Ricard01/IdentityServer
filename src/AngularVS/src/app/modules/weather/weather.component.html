@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <tr>
+            <td>Resumen</td>
+            <td>Fecha</td>
+            <td>Temperatura Celsius</td>
+            <td>Temperatura Fahrenheit</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of weather">
+            <td> {{ item.summary }}</td>
+            <td> {{ item.date }}</td>
+            <td> {{ item.temperatureC }}</td>
+            <td> {{ item.temperatureF }}</td>
+        </tr>
+    </tbody>
+</table>
