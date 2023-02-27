@@ -1,23 +1,8 @@
-@use 'sass:map';
-@use '@angular/material' as mat;
-@use './../custom/variables' as theme;
+header {
+    position: relative;
+    z-index: 200;
 
-@mixin theme($theme) {
-  $background: map.get($theme, background);
-
-  .toolbar {
-    background-color: theme.$header-background;
-    color: mat.get-color-from-palette($background, text);
-  }
-
-
-  .toolbar-button {
-    &.mat-icon-button {
-      &:hover {
-        background-color: mat.get-color-from-palette($background, hover);
-      }
+    .toolbar {
+        padding: 0 8px;
     }
-  }
-
-
 }

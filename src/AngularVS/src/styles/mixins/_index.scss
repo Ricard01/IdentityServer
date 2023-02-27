@@ -1,0 +1,10 @@
+@use './toolbar';
+@use './sidemenu';
+
+
+// Styles for the app that are based on the current theme.
+@mixin theme($theme) {
+  //   @include alert.theme($theme, $typography-config);
+  @include sidemenu.theme($theme);
+  @include toolbar.theme($theme);
+}

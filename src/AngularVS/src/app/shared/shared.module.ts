@@ -26,11 +26,21 @@ const commonModules = [
   CommonModule,
   FormsModule,
   ReactiveFormsModule,
-  MatSidenavModule,
   MatToolbarModule,
+  MatSidenavModule,
   MatButtonModule,
   MatIconModule,
-  MatMenuModule
+  MatMenuModule,
+  MatDividerModule,
+  MatSlideToggleModule,
+  MatRippleModule,
+  MatFormFieldModule,
+  MatRadioModule,
+  MatCheckboxModule,
+  MatMenuModule,
+  MatCheckboxModule,
+  MatInputModule,
+
 
 ]
 

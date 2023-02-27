@@ -1,21 +1,15 @@
-<mat-toolbar class="toolbar">
+<mat-toolbar class="toolbar" color="primary">
   <button mat-icon-button class="toolbar-button" (click)="toggleSidenav.emit()">
-    <mat-icon>menu</mat-icon>
+      <mat-icon>menu</mat-icon>
+  </button>
+  <form [formGroup]="form">
+      <mat-slide-toggle formControlName="isDarkTheme" class="mr-8">
+      </mat-slide-toggle>
+  </form>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="icon favorite-icon" aria-label="icon-button with heart icon" (click)="logOut()">
+    <mat-icon>favorite</mat-icon>
   </button>
 
-  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item routerLink="home">Mi Perfil</button>
-  <button mat-menu-item (click)="logOut()">Cerrar sesion</button>
-</mat-menu>
-
-
-<button routerLink="home" mat-raised-button >Home</button>
-
-<button routerLink="weather" mat-raised-button >Weather API</button>
-
-<button (click)="logOut()" mat-button>Cerrar sesion</button>
-
-
-
 </mat-toolbar>
+

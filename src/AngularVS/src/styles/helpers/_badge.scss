@@ -1,0 +1,19 @@
+// Los mixins se incluyen en las hojas de estilos mediante la directiva @include seguida del nombre del mixin y opcionalmente
+// por una lista de argumentos. El resultado es que todos los estilos definidos por el mixin se incluyen en el mismo punto en el que se llama al mixin.
+// https://uniwebsidad.com/libros/sass/capitulo-9
+
+@mixin badge() {
+    display: inline-block;
+    min-width: 18px;
+    padding: .35em .65em;
+    color: #fff;
+    font-weight: 700;
+    font-size: .75em;
+    line-height: 1;
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: baseline;
+    background-color: #757575;
+    border-radius: 4px;
+  }
+  

@@ -1,0 +1,61 @@
+@use './palettes' as pal;
+@use '@angular/material' as mat;
+// Layout
+$gutter: 16px !default;
+$bg-header: #0F172A;
+$bg-sidenav: #0F172A;
+$bg-default: #0F172A; // #0F172A 15,23,42
+
+// Sidenav
+$sidenav-width: 240px !default;
+$sidenav-collapsed-width: 50px !default;
+$sidenav-width-mobile: 280px !default;
+
+// Typography
+$font-family-sans-serif: 'Roboto', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
+    'Lucida Grande', sans-serif !default;
+$font-family-monospace: 'Roboto Mono', monospace !default;
+$font-family-base: $font-family-sans-serif !default;
+
+// Toolbar
+$toolbar-height-desktop: 64px !default;
+$toolbar-height-mobile: 56px !default;
+
+// Topmenu
+$topmenu-sticky-position-desktop: $toolbar-height-desktop !default;
+$topmenu-sticky-position-mobile: $toolbar-height-mobile !default;
+
+// Breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+$breakpoints: (
+    xsmall: 0,
+    small: 600px,
+    medium: 960px,
+    large: 1280px,
+    xlarge: 1920px) !default;
+
+
+// The material default animation curves
+$swift-ease-out-duration: 400ms !default;
+$swift-ease-out-timing-function: cubic-bezier(.25, .8, .25, 1) !default;
+
+// Colores Adicionales
+$my-colors: (
+  pink: pal.$my-darkpink,
+  softpink: pal.$my-softpink,
+  purple: pal.$my-darkpurple,
+  softpurple: pal.$my-softpurple,
+  skyblue: pal.$my-skyblue,
+  yellow: pal.$my-yellow,
+  green: pal.$my-green,
+  darkgreen: pal.$my-darkgreen,
+  gray: pal.$my-darkgray,
+  blue-gray: pal.$my-darkgray,
+  red: red, 
+  white: white,
+  black: black,
+  light: white,
+  dark: rgba(black, .87),
+)!default;

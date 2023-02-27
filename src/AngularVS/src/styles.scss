@@ -1,4 +1,35 @@
-// @use 'styles/custom/global';
-// @use 'styles/custom/reboot';
-// @use 'styles/themes/dark';
-// @use 'styles/grid/grid';
+// CSS principal del Layout
+@use './styles/components';
+@use './styles/helpers/misc';
+@use './styles/helpers/colors';
+
+// Custom Theming for Angular Material Aqui conjuga todo el show 
+@use '@angular/material' as mat;
+
+// Definicion de temas 
+@use './styles/themes/dark';
+@use './styles/themes/light';
+
+// Modificaciones a los componentes de angular material segun el tema
+@use './styles/mixins/index' as app-theme;
+@include app-theme.theme(dark.$my-dark-theme);
+
+
+// prerequisite styles for common features used by multiple components, such as ripples
+@include mat.core();
+
+// @include mat.core(typography.$my-app-typography);
+
+// Apply the dark theme by default
+// @include mat.all-component-themes(dark.$my-dark-theme);
+@include mat.core-theme(dark.$my-dark-theme);
+@include mat.button-theme(dark.$my-dark-theme);
+@include mat.icon-button-theme(dark.$my-dark-theme);
+@include mat.fab-theme(dark.$my-dark-theme);
+
+
+.light-theme {
+    @include mat.core-color(light.$my-light-theme);
+    @include mat.button-color(light.$my-light-theme);
+    @include app-theme.theme(light.$my-light-theme);
+}

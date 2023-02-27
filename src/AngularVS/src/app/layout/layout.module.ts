@@ -5,6 +5,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
+import { NavAccordionDirective, NavAccordionItemDirective, NavAccordionToggleDirective } from './sidemenu/directives';
+import { SidemenuComponent } from './sidemenu/sidemenu.component';
 
 
 
@@ -12,10 +14,13 @@ import { LayoutComponent } from './layout.component';
   declarations: [
     HeaderComponent,
     SidebarComponent,
-    LayoutComponent
+    LayoutComponent,
+    SidemenuComponent,
+    NavAccordionDirective,
+    NavAccordionItemDirective,
+    NavAccordionToggleDirective,
   ],
-  imports: [
-    CommonModule,
+  imports: [    
     RouterModule,
     SharedModule
   ],
@@ -24,4 +29,4 @@ import { LayoutComponent } from './layout.component';
     SidebarComponent
   ]
 })
-export class MyLayoutModule { }
+export class LayoutModule { }

@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-callback',
-  templateUrl: './callback.component.html',
+  template: '',
   styleUrls: ['./callback.component.scss']
 })
 export class CallbackComponent implements OnInit, OnDestroy{

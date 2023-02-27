@@ -1,72 +1,37 @@
-@use 'sass:map';
-// @use '@angular/material' as mat;
-@use '../custom/variables';
-@use './styles/custom/breakpoints';
+@use '../helpers/variables';
+@use '../helpers/breakpoints';
 
-
-@mixin theme() {
-
-  .mat-drawer {
-    background-color: variables.$sidebar-background;
-    color: variables.$bodycolor;
-
-    &.mat-drawer-push {
-      background-color: variables.$themecolor;
-    }
-  }
-
-
-  .sidebar-header {
+sidebar-header {
     position: relative;
     top: 0;
     left: 0;
     z-index: 1;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: variables.$toolbar-height-desktop;
-    padding: 0 10px;
+    padding: 0 8px;
     overflow: hidden;
 
     @include breakpoints.bp-lt(small) {
-      & {
-        height: variables.$toolbar-height-mobile;
-      }
+        & {
+            height: variables.$toolbar-height-mobile;
+        }
     }
 
-    // Colorful
-    .header-white & {
-      background-color: white;
-    }
-  }
+    // // Colorful
+    // .matero-header-white & {
+    //   background-color: white;
+    // }
+}
 
-  .sidebar-main {
+.sidebar-main {
     height: calc(100% - #{variables.$toolbar-height-desktop});
     overflow: auto;
 
     @include breakpoints.bp-lt(small) {
-      & {
-        height: calc(100% - #{variables.$toolbar-height-mobile});
-      }
+        & {
+            height: calc(100% - #{variables.$toolbar-height-mobile});
+        }
     }
-  }
-
-  .branding {
-    display: inline-block;
-    color: inherit;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-
-  .logo {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    vertical-align: middle;
-  }
-
-  .logo-text {
-    font-weight: normal;
-    vertical-align: middle;
-  }
-
 }

@@ -1,0 +1,48 @@
+{
+  "menu": [
+    {
+      "route": "home",
+      "name": "Dashboard",
+      "type": "link",
+      "icon": "dashboard",
+      "badge": {
+        "color": "pink-500",
+        "value": "5"
+      }
+    },
+    {
+      "route": "weather",
+      "name": "Weather",
+      "type": "link",
+      "icon": "weather",
+      "badge": {
+        "color": "purple-500",
+        "value": "11"
+      }
+    },
+    {
+      "route": "material",
+      "name": "Material",
+      "type": "sub",
+      "icon": "color_lens",
+      "children": [
+        {
+          "route": "button",
+          "name": "Buttons",
+          "type": "link"
+        },
+        {
+          "route": "form",
+          "name": "Forms",
+          "type": "link"
+        }
+      ],
+      "permissions": {
+        "only": [
+          "ADMIN",
+          "MANAGER"
+        ]
+      }
+    }
+  ]
+}

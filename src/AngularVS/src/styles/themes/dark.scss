@@ -1,0 +1,26 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+@use '../helpers/palettes';
+
+//These four hues represent, in order: the "default" hue, a "lighter" hue, a "darker" hue, and a "text" hue.
+$dark-primary: mat.define-palette(palettes.$my-darkgray);
+$dark-accent: mat.define-palette(palettes.$my-darkpurple);
+$dark-warn: mat.define-palette(palettes.$my-darkpink);
+
+$my-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $dark-primary,
+      accent: $dark-accent,
+      warn: $dark-warn,
+    ),
+  )
+);
+
+$dark-success: mat.define-palette(palettes.$my-darkgreen);
+$dark-info: mat.define-palette(palettes.$my-darkinfo);
+
+$dark-variants: (
+  success: $dark-success,
+  info: $dark-info,
+);

@@ -1,0 +1,195 @@
+@use '@angular/material' as mat;
+@use '../helpers/variables';
+@use '../helpers/transitions';
+@use '../helpers/breakpoints';
+
+// nombre archivo en ngmatero = reboot y admin_layout.scss
+body {
+    margin: 0;
+    font-family: variables.$font-family-base;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+html,
+body {
+    position: relative; // 1
+    height: 100%;
+    overflow: auto; // 2
+}
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+dl,
+ol,
+ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: variables.$font-family-monospace;
+}
+
+code {
+    padding: 3px;
+    font-size: 90%;
+    word-break: break-word;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.container-wrap,
+.container {
+    height: 100%;
+}
+
+.content {
+    position: relative;
+    padding: variables.$gutter;
+}
+
+.sidenav {
+    background-color: variables.$bg-sidenav;
+    color: white;
+    position: absolute;
+    overflow-x: hidden;
+    transition: transitions.swift-ease-out(width); // Only set width property
+
+    @include mat.elevation(2);
+
+    &.mat-drawer-side {
+        border-width: 0;
+
+        [dir='rtl'] & {
+            border-width: 0;
+        }
+    }
+}
+
+
+// Layout control
+.sidenav-collapsed,
+.sidenav-collapsed-fix {
+    .sidenav {
+        width: variables.$sidenav-collapsed-width;
+
+        .menu-name,
+        .menu-label,
+        .menu-badge,
+        .menu-caret,
+        .user-panel-name,
+        .user-panel-email,
+        .user-panel-icons {
+            opacity: 0;
+        }
+
+        .user-panel-avatar {
+            transform: scale(.5);
+        }
+
+        &:hover {
+            width: variables.$sidenav-width;
+
+            .menu-name,
+            .menu-label,
+            .menu-badge,
+            .menu-caret,
+            .user-panel-name,
+            .user-panel-email,
+            .user-panel-icons {
+                opacity: 1;
+            }
+
+            .user-panel-avatar {
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+// Layout control
+.sidenav-collapsed {
+    .content-wrap {
+        margin-left: variables.$sidenav-collapsed-width !important;
+
+        [dir='rtl'] & {
+            margin-right: variables.$sidenav-collapsed-width !important;
+            margin-left: auto !important;
+        }
+    }
+
+    &[dir='rtl'] .content-wrap {
+        margin-right: variables.$sidenav-collapsed-width !important;
+        margin-left: auto !important;
+    }
+}
+
+
+// Layout control
+.header-fixed {
+    .header {
+        background-color: variables.$bg-header;
+        position: sticky;
+        top: 0;
+    }
+
+    .topmenu {
+        top: variables.$topmenu-sticky-position-desktop;
+
+        @include breakpoints.bp-lt(small) {
+            & {
+                top: variables.$topmenu-sticky-position-mobile;
+            }
+        }
+    }
+
+    &.navbar-side {
+        .toolbar {
+            border-bottom: unset;
+
+            @include mat.elevation(2);
+        }
+    }
+}
+
+// Layout control
+.navbar-top {
+    .topmenu {
+        top: 0;
+    }
+
+    .branding {
+        margin-left: 16px;
+
+        [dir='rtl'] & {
+            margin-right: 16px;
+            margin-left: auto;
+        }
+    }
+}
+
+// Fix the init content width
+.content-width-fix {
+    .content-wrap {
+        margin-left: variables.$sidenav-width !important;
+
+        [dir='rtl'] & {
+            margin-right: variables.$sidenav-width !important;
+            margin-left: auto !important;
+        }
+    }
+}

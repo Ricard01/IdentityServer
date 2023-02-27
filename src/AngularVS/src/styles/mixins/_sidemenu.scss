@@ -1,0 +1,65 @@
+@use 'sass:color';
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin theme($theme) {
+  $is-dark-theme: map.get($theme, is-dark);
+  $primary: map.get($theme, accent);
+  $accent: map.get($theme, warn);
+  // $background: map.get($theme, background);
+  // $foreground: map.get($theme, foreground);
+
+  .sidemenu {
+    > .menu-item {
+      > .menu-heading {
+        color: #ffffff;//mat.get-color-from-palette($foreground, text);
+
+        &:hover,
+        &:focus {
+          background: rgba(255, 255, 255, 0.04);//mat.get-color-from-palette($background, hover);
+        
+        }
+      }
+
+      &.active {
+        > .menu-heading {
+          color:
+            if(
+              $is-dark-theme,
+              color.adjust(mat.get-color-from-palette($primary), $lightness: 25%),
+              mat.get-color-from-palette($accent)
+            );
+          background-color: if($is-dark-theme, rgba(mat.get-color-from-palette($primary), .15), transparent);
+
+          &:hover,
+          &:focus {
+            background:rgba(255, 255, 255, 0.04);// mat.get-color-from-palette($background, hover);
+          }
+        }
+      }
+
+      &.expanded {
+        background:rgba(255, 255, 255, 0.04);// mat.get-color-from-palette($background, hover);
+      }
+    }
+
+    &.submenu {
+      > .menu-item {
+        &.active {
+          > .menu-heading {
+            background-color: transparent;
+
+            &:hover,
+            &:focus {
+              background: rgba(255, 255, 255, 0.04);//mat.get-color-from-palette($background, hover);
+            }
+          }
+        }
+
+        &.expanded {
+          background: transparent;
+        }
+      }
+    }
+  }
+}
