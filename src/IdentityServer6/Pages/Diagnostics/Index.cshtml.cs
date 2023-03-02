@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Authorization;
 
-namespace IdentityServerHost.Pages.Diagnostics;
+namespace IdentittyServer6.Pages.Diagnostics;
 
 [SecurityHeaders]
 [Authorize]

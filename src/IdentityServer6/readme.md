@@ -29,9 +29,35 @@
 
  6. Agregar servicios. 
 
- 7. Crear cliente de Angular   
+ 7. Crear cliente de Angular
 
- 8. Configurar CORS
+ 8. Crear Folder Infrastructure
+
+    1. Modificar appsettings.dev para configurar la cadena de conexion a la bd. 
+    2. Agregar los paquetes tools. design. y sql 
+    3. Crear la clase ApplicationDbContext 
+    4. Crear la clase ConfigureServices donde se registrar los servicios y agregar y configurar el contexto recien creado. 
+    5. Registrar el servicio  AddInfrastrucure en Program. 
+    6. Agregar la migracion de AspNet Identity 
+    7 Agregar   services.AddIdentity<ApplicationUser, IdentityRole>() ..
+    8 Agregar migraciones IdentityServer
+    9 Agregar ApplicationDbContextInitialiser 
+    10 Agregar IdentityDbContextInitialiser
+    11 Modificar Program para que inicialise las clases anteriores. 
+    12 Modificar Account/login para que tome la informacion de UserManager 
+    13 Agregar los servicios que faltan. 
+        a.- 
+
+### Migrations
+
+* Install in the root of the repository (if it is not installed)
+  * `dotnet new tool-manifest`
+  * `dotnet tool install dotnet-ef`
+* `dotnet ef migrations add InitialIdentityApplicationDbMigration -c ApplicationDbContext -o Infrastructure/Persistence/Migrations/Identity/ApplicationDb` (for more info add -v)
+* `dotnet ef migrations add InitialIdentityServerPersistedGrantDbMigration -c PersistedGrantDbContext  -o Infrastructure/Persistence/Migrations/IdentityServer/PersistedGrantDb`
+* `dotnet ef migrations add InitialIdentityServerConfigurationDbMigration -c ConfigurationDbContext -o Infrastructure/Persistence/Migrations/IdentityServer/ConfigurationDb`
+* `dotnet ef migrations remove -p Infrastructure/ -s WebUI/`
+
 
  ### Referencias
 

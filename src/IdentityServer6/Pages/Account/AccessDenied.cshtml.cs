@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace IdentityServerHost.Pages.Account;
+namespace IdentittyServer6.Pages.Account;
 
 public class AccessDeniedModel : PageModel
 {
