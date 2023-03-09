@@ -4,6 +4,7 @@ using Duende.IdentityServer;
 using IdentityModel;
 using System.Security.Claims;
 using System.Text.Json;
+using System.Security.Principal;
 
 namespace IdentityServer6.Infrastructure.Persistence;
 
@@ -81,6 +82,7 @@ public static class ConfigIDS
       {
     new ApiScope("weatherapi.read"),
     new ApiScope("weatherapi.write"),
+    new ApiScope("identity.api"),
       };
 
     public static IEnumerable<ApiResource> ApiResources =>
@@ -91,6 +93,11 @@ public static class ConfigIDS
     Scopes = new List<string> {"weatherapi.read", "weatherapi.write"},
     ApiSecrets = new List<Secret> {new Secret("ScopeSecret".Sha256())},
     UserClaims = new List<string> {"role"}
+  },
+  new ApiResource("identityApi")
+  {
+       Scopes = new List<string> {"identity.api"},
+      ApiSecrets = new List<Secret> { new Secret("ScopeSecret".Sha256())}
   }
 };
 
@@ -106,7 +113,7 @@ public static class ConfigIDS
       AllowedGrantTypes = GrantTypes.ClientCredentials,
       ClientSecrets = {new Secret("SuperSecretPassword".Sha256())},
 
-      AllowedScopes = {"weatherapi.read", "weatherapi.write"}
+      AllowedScopes = {"weatherapi.read", "weatherapi.write", "identity.api" }
     },
 
     // interactive client using code flow + pkce
@@ -122,7 +129,7 @@ public static class ConfigIDS
       PostLogoutRedirectUris = {"https://localhost:5444/signout-callback-oidc"},
 
       AllowOfflineAccess = true,
-      AllowedScopes = {"openid", "profile", "weatherapi.read"},
+      AllowedScopes = {"openid", "profile", "weatherapi.read","identity.api"},
       RequirePkce = true,
       RequireConsent = true,
       AllowPlainTextPkce = false
@@ -136,7 +143,7 @@ public static class ConfigIDS
         RequireClientSecret = false,
         AllowOfflineAccess = true,
         //AllowAccessTokensViaBrowser=true,
-        RedirectUris = {"https://localhost:5002/callback"},
+        RedirectUris = {"1"},
         PostLogoutRedirectUris = { "https://localhost:5002" },
         AllowedCorsOrigins={ "https://localhost:5002"}, // que pasa si no lo pongo 
         // RequireConsent = false, // default false
@@ -145,7 +152,8 @@ public static class ConfigIDS
             IdentityServerConstants.StandardScopes.OpenId,
             IdentityServerConstants.StandardScopes.Profile,
             "offline_access",
-            "weatherapi.write"
+            "weatherapi.write",
+            "identity.api"
 
 
         },

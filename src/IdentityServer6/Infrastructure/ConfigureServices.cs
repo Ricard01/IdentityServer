@@ -29,7 +29,18 @@ public static class ConfigureServices
     .AddDefaultTokenProviders();
 
 
-        services.AddIdentityServer()
+        services.AddIdentityServer( options =>
+        {
+            //options.Authentication.CookieLifetime = TimeSpan.FromHours(1);
+            //options.Authentication.CookieSlidingExpiration = false;
+            options.Events.RaiseErrorEvents = true;
+            options.Events.RaiseInformationEvents = true;
+            options.Events.RaiseFailureEvents = true;
+            options.Events.RaiseSuccessEvents = true;
+
+            options.EmitStaticAudienceClaim = true;
+
+        })
             .AddAspNetIdentity<ApplicationUser>()
             .AddConfigurationStore(configurationStoreOptions =>
             {
@@ -40,6 +51,15 @@ public static class ConfigureServices
             {
                 operationalStoreOptions.ConfigureDbContext = opt => ConfigOptions(configuration, opt);
             });
+
+        // Configurations for password, user  or lockout settings 
+        services.Configure<IdentityOptions>(options =>
+        {
+            options.Password.RequiredLength = 6;
+            options.Password.RequireUppercase = false;
+            options.Password.RequireNonAlphanumeric = false;
+            options.Password.RequireDigit = false;
+        });
 
         services.AddRazorPages();
 

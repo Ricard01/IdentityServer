@@ -32,6 +32,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Angular", "src\Angular\", "
 		SlnRelativePath = "src\Angular\"
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{BA20AF7C-BEFE-4AE2-9BEC-EE1A3AEE677D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity", "src\Identity\Identity.csproj", "{A1511DCA-EE68-41EB-B7BA-ED4778B398AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +60,10 @@ Global
 		{EAF72846-A092-41B4-ACBA-1209CEE868BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAF72846-A092-41B4-ACBA-1209CEE868BD}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{EAF72846-A092-41B4-ACBA-1209CEE868BD}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{A1511DCA-EE68-41EB-B7BA-ED4778B398AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1511DCA-EE68-41EB-B7BA-ED4778B398AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1511DCA-EE68-41EB-B7BA-ED4778B398AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1511DCA-EE68-41EB-B7BA-ED4778B398AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +72,8 @@ Global
 		{D80E3D1F-06D0-4D06-91E9-79F5FD8A4BD5} = {533480B5-ED50-4708-8570-620DBC5A325C}
 		{EDC71558-F447-4125-8855-FCB83FC2654E} = {533480B5-ED50-4708-8570-620DBC5A325C}
 		{EAF72846-A092-41B4-ACBA-1209CEE868BD} = {533480B5-ED50-4708-8570-620DBC5A325C}
+		{BA20AF7C-BEFE-4AE2-9BEC-EE1A3AEE677D} = {533480B5-ED50-4708-8570-620DBC5A325C}
+		{A1511DCA-EE68-41EB-B7BA-ED4778B398AF} = {533480B5-ED50-4708-8570-620DBC5A325C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D873C0DC-5550-491A-80DA-BAD25ABBFBF1}
