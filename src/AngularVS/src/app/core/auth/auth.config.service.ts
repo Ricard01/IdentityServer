@@ -19,9 +19,7 @@ export class AuthConfigService {
             responseType: this._config.RESPONSE_TYPE,
             silentRenew: true,
             useRefreshToken:true,
-            secureRoutes: [
-                this._config.WEATHER_API_URL,
-            ],
+            secureRoutes: this._config.SECURE_ROUTES,
             startCheckSession: true,
            // triggerAuthorizationResultEvent: true,
             //renewTimeBeforeTokenExpiresInSeconds:50,

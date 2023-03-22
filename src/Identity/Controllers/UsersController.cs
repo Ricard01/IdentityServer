@@ -1,4 +1,5 @@
 ﻿using Identity.Infrastructure.Repositories.Users;
+using Identity.Infrastructure.Repositories.Users.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,11 +18,30 @@ public class UsersController : ControllerBase
         _userRepository = userRepository;
     }
 
+    [HttpGet]
+    public async Task<ActionResult<UsersVm>> Get()
+    {
+        var result = await _userRepository.GetAll();
+        return result;
+    }
+    [HttpGet("{userId}")]
+    public async Task<ActionResult<UserDto>>Get(string userId)
+    {
+        return await _userRepository.GetAsync(userId);
+    }
+
     [HttpPost]
     public async Task<ActionResult> Create([FromBody]User userRequest)
     {
-        var result = await _userRepository.CreateAsync(userRequest);
+        //var result = 
 
+        return Ok(await _userRepository.CreateAsync(userRequest));
+    }
+
+    [HttpPatch("{userId}")]
+    public async Task<ActionResult> Patch(string userId, [FromBody] User userRequest)
+    {
+        var result = await _userRepository.UpdateAsync(userId, userRequest);
         return Ok(result);
     }
 }

@@ -6,7 +6,8 @@ export const LOCALHOST_CONFIG: AppConfig = {
     POST_LOGOUT_REDIRECT_URI: `${window.location.origin}`,
     CLIENT_ID: 'angularVS',
     RESPONSE_TYPE: 'code',
-    SCOPE: 'openid offline_access weatherapi.write ',
+    SCOPE: 'openid offline_access identity.api ',
     WEATHER_API_URL: 'https://localhost:5001',
-    SECURE_ROUTES: [ 'https://localhost:5001' ],
+    IDENTITY_API_URL: 'https://localhost:4000',
+    SECURE_ROUTES: [ 'https://localhost:5001', 'https://localhost:4000' ],
 }

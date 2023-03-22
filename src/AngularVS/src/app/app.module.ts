@@ -37,9 +37,9 @@ import { filter } from 'rxjs';
 })
 export class AppModule {
   constructor(private eventService: PublicEventsService) {
-    this.eventService
-      .registerForEvents()
-      .pipe(filter((notification) => notification.type === EventTypes.CheckSessionReceived))
-      .subscribe((value) => console.log('CheckSessionChanged with value', value));
+    // this.eventService
+    //   .registerForEvents()
+    //   .pipe(filter((notification) => notification.type === EventTypes.CheckSessionReceived))
+    //   .subscribe((value) => console.log('CheckSessionChanged with value', value));
   }
  }

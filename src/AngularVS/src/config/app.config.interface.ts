@@ -6,5 +6,6 @@ export interface AppConfig {
   SCOPE: string;
   RESPONSE_TYPE: string;
   WEATHER_API_URL: string;
+  IDENTITY_API_URL: string;
   SECURE_ROUTES:string[];
 }

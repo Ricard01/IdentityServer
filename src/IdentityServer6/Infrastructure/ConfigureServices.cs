@@ -1,4 +1,5 @@
-﻿using IdentityServer6.Infrastructure.Identity;
+﻿using Identity.Authorize;
+using IdentityServer6.Infrastructure.Identity;
 using IdentityServer6.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -21,10 +22,9 @@ public static class ConfigureServices
 
         services.AddScoped<IdentityServerDbContextInitialiser>();
 
-
+        services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, AddPermissionsToUserClaims>();
         // 8.7
         services.AddIdentity<ApplicationUser, IdentityRole>()
-    //.AddClaimsPrincipalFactory<ApplicationUserClaimsPrincipalFactory>() // si no queremos esos claims personalizados no seria necesario 
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 

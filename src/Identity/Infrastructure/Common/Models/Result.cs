@@ -1,4 +1,6 @@
-﻿namespace Identity.Infrastructure.Common.Models;
+﻿using Identity.Domain;
+
+namespace Identity.Infrastructure.Common.Models;
 
 public class Result
 {
@@ -7,6 +9,12 @@ public class Result
         Succeeded = succeeded;
         Errors = errors.ToArray();
     }
+
+    //return for Create and Update | Post and PAtch 
+
+    public string? UserId { get; set; }
+    public string? Rol { get; set; }
+    public string? Nombre { get; set; }
 
     public bool Succeeded { get; init; }
 
@@ -20,5 +28,11 @@ public class Result
     public static Result Failure(IEnumerable<string> errors)
     {
         return new Result(false, errors);
+    }
+
+    //return for Create and Update | Post and PAtch 
+    public static Result Success(ApplicationUser user, string rol)
+    {
+        return new Result(true, new string[] { }) { UserId = user.Id, Nombre = user.Nombre, Rol = rol };
     }
 }
